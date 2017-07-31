@@ -32,6 +32,8 @@ public class RegexUtil {
      * 147
      */
     public static boolean isChinaPhoneLegal(String str) throws PatternSyntaxException {
+        str = str.trim();
+        if (StringUtils.isBlank(str)) return false;
         String regExp = "^((13[0-9])|(15[^4])|(18[0,2,3,5-9])|(17[0-8])|(147))\\d{8}$";
         Pattern p = Pattern.compile(regExp);
         Matcher m = p.matcher(str);
@@ -63,6 +65,8 @@ public class RegexUtil {
      * 邮箱校验
      */
     public static boolean isEmailLegal(String str) throws PatternSyntaxException {
+        str = str.trim();
+        if (StringUtils.isBlank(str)) return false;
         String regExp = "^([a-z0-9A-Z]+[-|_|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";
         Pattern p = Pattern.compile(regExp);
         Matcher m = p.matcher(str);
@@ -75,6 +79,8 @@ public class RegexUtil {
      * 没有进行省市区的判断
      */
     public static boolean isChinaIdNum(String str) throws PatternSyntaxException {
+        str = str.trim();
+        if (StringUtils.isBlank(str)) return false;
         String regExp = "\\d{17}[0-9a-zA-Z]";
         Pattern p = Pattern.compile(regExp);
         Matcher m = p.matcher(str);

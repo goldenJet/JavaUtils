@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<actionmodels xmlns="http://www.****.com/actionModels">
+    <model name="main_sidebar_menus">
+        <action name="home" type="home"/>
+        <submodel name="customer_entering" resourceBundle="resourceBundle/customerEnteringResourceBundle"/>
+        <submodel name="resource_management" resourceBundle="resourceBundle/resourceResourceBundle"/>
+        <submodel name="marketing_management" resourceBundle="resourceBundle/marketingResourceBundle"/>
+        <!--<submodel name="callcenter_management" resourceBundle="resourceBundle/callCenterResourceBundle"/>-->
+        <submodel name="contract_management" resourceBundle="resourceBundle/contractResourceBundle"/>
+        <!--<submodel name="sales_management" resourceBundle="resourceBundle/salesResourceBundle"/>-->
+        <submodel name="process_management" resourceBundle="resourceBundle/processResourceBundle"/>
+        <submodel name="finance_management" resourceBundle="resourceBundle/financeResourceBundle"/>
+        <submodel name="project_management" resourceBundle="resourceBundle/projectResourceBundle"/>
+        <submodel name="channel_management" resourceBundle="resourceBundle/channelResourceBundle"/>
+        <submodel name="gift_management" resourceBundle="resourceBundle/giftResourceBundle"/>
+        <!--<submodel name="followup_management" resourceBundle="resourceBundle/followUpResourceBundle"/>-->
+        <submodel name="performance_management" resourceBundle="resourceBundle/performanceResourceBundle"/>
+        <submodel name="stats_management" resourceBundle="resourceBundle/statsResourceBundle"/>
+        <submodel name="system_management" resourceBundle="resourceBundle/systemResourceBundle"/>
+    </model>
+
+    <model name="customer_entering">
+        <action name="customerEntering" type="customerEntering"/>
+    </model>
+
+    <model name="resource_management">
+        <action name="resourceManagement" type="resource"/>
+        <!--<action name="intentionCustomer" type="resource"/>-->
+        <action name="signedCustomer" type="resource"/>
+        <!--<action name="customerFollowUp" type="resource"/>-->
+        <action name="resourceReturnVisit" type="resource"/>
+        <!--<action name="returnVisit" type="resource"/>-->
+        <!--<action name="customerInterview" type="resource"/>-->
+        <action name="merge" type="resource"/>
+    </model>
+
+    <model name="finance_management">
+        <!--<action name="marketingCostTypein" type="finance"/>-->
+        <action name="contractQuery" type="finance"/>
+        <!-- <action name="customSignedAndProcessQuery" type="finance"/> -->
+        <action name="customInfoAndProcessQuery" type="finance"/>
+        <action name="customServiceCostComfirm" type="finance"/>
+        <action name="customAgentCostComfirm" type="finance"/>
+        <!--<action name="customFinishComfirm" type="finance"/>-->
+        <!--<action name="giftQuery" type="finance"/>-->
+    </model>
+
+    <model name="marketing_management">
+        <action name="marketingActivity" type="marketing"/>
+        <action name="marketingApproval" type="marketing"/>
+        <action name="marketingExecute" type="marketing"/>
+        <action name="marketingActivityQuery" type="marketing"/>
+        <action name="marketingCalendar" type="marketing"/>
+        <!--<action name="marketingNetwork" type="marketing"/>-->
+        <!--<action name="marketingExpenses" type="marketing"/>-->
+        <!--<action name="marketAnalysis" type="marketing"/>-->
+    </model>
+
+    <model name="channel_management">
+        <action name="channelInfo" type="channel"/>
+        <!--<action name="channelActivity" type="channel"/>-->
+        <action name="channelAnalysis" type="channel"/>
+    </model>
+
+    <model name="contract_management">
+        <action name="contractInfo" type="contract"/>
+        <!--<action name="channelActivity" type="channel"/>-->
+        <!--<action name="contractHistory" type="contract"/>-->
+    </model>
+
+    <model name="gift_management">
+        <action name="giftBaseInfo" type="gift"/>
+        <action name="giftInboundOutbound" type="gift"/>
+        <action name="publicityItemsManagement" type="gift"/>
+        <action name="publicityItemsInboundOutbound" type="gift"/>
+    </model>
+
+    <model name="callcenter_management">
+        <action name="customer_pool" type="callCenter"/>
+        <action name="resource_management" type="callCenter"/>
+        <action name="returnVisit" type="callCenter"/>
+        <!--<action name="callLog" type="callCenter"/>-->
+    </model>
+
+    <model name="sales_management">
+        <!--<action name="unsignedCustomer" type="sales"/>
+        <action name="signedCustomer" type="sales"/>
+        <action name="divisionSales" type="sales"/>
+        <action name="divisionAnalysis" type="sales"/>-->
+        <action name="intentionCustomer" type="sales"/>
+        <action name="signedCustomer" type="sales"/>
+        <action name="customerMerge" type="sales"/>
+        <action name="returnVisit" type="sales"/>
+        <action name="performance" type="sales"/>
+        <action name="clientResource" type="sales"/>
+    </model>
+
+    <model name="project_management">
+        <action name="projectInfo" type="project"/>
+        <action name="projectAmountManagement" type="project"/>
+        <!--<action name="projectClassfication" type="project"/>-->
+    </model>
+
+    <model name="process_management">
+        <action name="processUpdate" type="process"/>
+        <!-- <action name="file" type="process"/> -->
+        <action name="search" type="process"/>
+    </model>
+    
+    <model name="performance_management">
+        <action name="mine" type="performance"/>
+        <action name="business" type="performance"/>
+        <action name="case" type="performance"/>
+        <action name="project" type="performance"/>
+    </model>
+    
+    <model name="stats_management">
+        <action name="source" type="stats"/>
+        <action name="client" type="stats"/>
+        <action name="conversion" type="stats"/>
+        <action name="sign" type="stats"/>
+        <action name="return" type="stats"/>
+    </model>
+
+    <model name="followup_management">
+        <!--<action name="service" type="followUp"/>-->
+        <action name="customer_pool" type="followUp"/>
+        <action name="customerInterview" type="followUp"/>
+        <action name="serviceStatistics" type="followUp"/>
+    </model>
+
+
+    <model name="system_management">
+        <action name="role" type="system"/>
+        <action name="staff" type="system"/>
+        <action name="smsTemplate" type="system"/>
+        <action name="dropDown" type="system"/>
+        <action name="basic" type="system"/>
+        <action name="processor" type="system"/>
+    </model>
+
+</actionmodels>
