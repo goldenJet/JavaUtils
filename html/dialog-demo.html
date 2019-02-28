@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>
+	</title>
+	<style>
+        .jetSendL {
+            position: relative;
+            margin-bottom: 10px;
+            min-height:35px;
+            display: flex;
+            justify-content:flex-start;
+        }
+
+        .jetSendR {
+            position: relative;
+            margin-bottom: 10px;
+            min-height:35px;
+            display: flex;
+            justify-content:flex-end;
+        }
+
+        .jetSendL .jetArrow {
+            position:absolute;
+            top:8px;
+            left:-16px;
+            width:0;
+            height:0;
+            font-size:0;
+            border:solid 8px;
+            border-color:#f2f2f2 #FFFFFF #f2f2f2 #f2f2f2;
+        }
+        .jetSendR .jetArrow {
+            position:absolute;
+            top:8px;
+            right:-16px;
+            width:0;
+            height:0;
+            font-size:0;
+            border:solid 8px;
+            border-color:#f2f2f2 #f2f2f2 #f2f2f2 #91cef5;
+        }
+
+        .jetSendL .jetText {
+            max-width: 90%;
+            background-color: #FFFFFF;
+            border-radius: 5px;
+            padding: 5px;
+            display: block;
+            word-wrap:break-word;
+        }
+
+        .jetSendR .jetText {
+            max-width: 90%;
+            background-color: #91cef5;
+            border-radius: 5px;
+            padding: 5px;
+            display: block;
+            word-wrap:break-word;
+        }
+
+    </style>
+
+</head>
+<body>
+	
+	<div style="background-color: #f2f2f2; width: 500px">
+		<div style="margin: 0 10px 0 10px" class="dialogDiv">
+			<div class="jetSendL">
+                <div class="jetArrow"></div>
+                <span class="jetText">喂</span>
+            </div>
+			<div class="jetSendR">
+                <div class="jetArrow"></div>
+                <span class="jetText">嗯你好，请问是陈先生吗？</span>
+            </div>
+			<div class="jetSendL">
+                <div class="jetArrow"></div>
+                <span class="jetText">恩，是的</span>
+            </div>
+			<div class="jetSendR">
+                <div class="jetArrow"></div>
+                <span class="jetText">请问你博客地址是不是http://www.jetchen.cn</span>
+            </div>
+			<div class="jetSendR">
+                <div class="jetArrow"></div>
+                <span class="jetText">昵称是不是GoldenJet</span>
+            </div>
+			<div class="jetSendL">
+                <div class="jetArrow"></div>
+                <span class="jetText">恩，是的</span>
+            </div>
+		</div>
+	</div>
+
+</body>
+</html>
