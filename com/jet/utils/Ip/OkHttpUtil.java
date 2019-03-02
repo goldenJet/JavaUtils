@@ -28,8 +28,9 @@ public class OkHttpUtil {
     public static String getStr(String url){
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .connectTimeout(50, TimeUnit.MILLISECONDS) // 连接超时时间
-                .readTimeout(100, TimeUnit.MILLISECONDS) // 读取超时时间
                 .retryOnConnectionFailure(false)
+                .readTimeout(100, TimeUnit.MILLISECONDS) // 读取超时时间
+                .writeTimeout(100, TimeUnit.MILLISECONDS) // 写超时时间
                 .build();
         Request request = new Request.Builder()
                 .url(url)
