@@ -44,12 +44,12 @@ public class SortArrayConsistentHash {
     }
 
     /**
-    * @Description: 写入数据
-    * @Param: [hash, value]
-    * @return: void
-    * @Author: Jet.Chen
-    * @Date: 2019/3/19 23:38
-    */
+     * @Description: 写入数据
+     * @Param: [hash, value]
+     * @return: void
+     * @Author: Jet.Chen
+     * @Date: 2019/3/19 23:38
+     */
     public void add(long hash, String value){
         // 大小判断是否需要扩容
         if (size == length) reSize();
@@ -58,23 +58,24 @@ public class SortArrayConsistentHash {
     }
 
     /**
-    * @Description: 排序
-    * @Param: []
-    * @return: void
-    * @Author: Jet.Chen
-    * @Date: 2019/3/19 23:48
-    */
+     * @Description: 排序
+     * @Param: []
+     * @return: void
+     * @Author: Jet.Chen
+     * @Date: 2019/3/19 23:48
+     */
     public void sort() {
-
+        // 此处的排序不需要关注 eqals 的情况
+        Arrays.sort(buckets, 0, size, (o1, o2) -> o1.hash > o2.hash ? 1 : -1);
     }
 
     /**
-    * @Description: 扩容
-    * @Param: []
-    * @return: void
-    * @Author: Jet.Chen
-    * @Date: 2019/3/19 23:42
-    */
+     * @Description: 扩容
+     * @Param: []
+     * @return: void
+     * @Author: Jet.Chen
+     * @Date: 2019/3/19 23:42
+     */
     public void reSize() {
         // 扩容1.5倍
         int newLength = length >> 1 + length;
