@@ -58,6 +58,28 @@ public class SortArrayConsistentHash {
     }
 
     /**
+     * @Description: 删除节点
+     * @Param: [hash]
+     * @return: boolean
+     * @Author: Jet.Chen
+     * @Date: 2019/3/20 0:24
+     */
+    public boolean del(long hash) {
+        if (size == 0) return false;
+        Integer index = null;
+        for (int i = 0; i < length; i++) {
+            Node node = buckets[i];
+            if (node == null) continue;
+            if (node.hash == hash) index = i;
+        }
+        if (index != null) {
+            buckets[index] = null;
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * @Description: 排序
      * @Param: []
      * @return: void
@@ -80,6 +102,28 @@ public class SortArrayConsistentHash {
         // 扩容1.5倍
         int newLength = length >> 1 + length;
         buckets = Arrays.copyOf(buckets, newLength);
+    }
+
+    /**
+     * @Description: 根据一致性hash算法获取node值
+     * @Param: [hash]
+     * @return: java.lang.String
+     * @Author: Jet.Chen
+     * @Date: 2019/3/20 0:16
+     */
+    public String getNodeValue(long hash) {
+        if (size == 0) return null;
+        for (Node bucket : buckets) {
+            // 防止空节点
+            if (bucket == null) continue;
+            if (bucket.hash >= hash) return bucket.value;
+        }
+        // 防止循环无法尾部对接首部
+        // 场景：仅列出node的hash值，[null, 2, 3...]，但是寻求的hash值是4，上面的第一遍循环很显然没能找到2这个节点，所有需要再循环一遍
+        for (Node bucket : buckets) {
+            if (bucket != null) return bucket.value;
+        }
+        return null;
     }
 
     /**
