@@ -1,0 +1,40 @@
+syntax = "proto3"; // PB协议版本
+
+import "google/protobuf/any.proto"; // 引用外部的message，可以是本地的，也可以是此处比较特殊的 Any
+
+package jet.protobuf; // 包名，其他 proto 在引用此 proto 的时候，就可以使用 test.protobuf.PersonTest 来使用，
+// 注意：和下面的 java_package 是两种易混淆概念，同时定义的时候，java_package 具有较高的优先级
+
+option java_package = "com.jet.protobuf"; // 生成类的包名，注意：会在指定路径下按照该包名的定义来生成文件夹
+option java_outer_classname="PersonTestProtos"; // 生成类的类名，注意：下划线的命名会在编译的时候被自动改为驼峰命名
+
+message PersonTest {
+  int32 id = 1; // int 类型
+  string name = 2; // string 类型
+  string email = 3;
+  Sex sex = 4; // 枚举类型
+  repeated PhoneNumber phone = 5; // 引用下面定义的 PhoneNumber 类型的 message
+  map<string, string> tags = 6; // map 类型
+  repeated google.protobuf.Any details = 7; // 使用 google 的 any 类型
+
+  // 定义一个枚举
+  enum Sex {
+      DEFAULT = 0;
+      MALE = 1;
+      Female = 2;
+  }
+
+  // 定义一个 message
+  message PhoneNumber {
+    string number = 1;
+    PhoneType type = 2;
+
+    enum PhoneType {
+      MOBILE = 0;
+      HOME = 1;
+      WORK = 2;
+    }
+
+  }
+
+}
