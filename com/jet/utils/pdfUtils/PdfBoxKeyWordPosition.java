@@ -16,7 +16,8 @@ public class PdfBoxKeyWordPosition extends PDFTextStripper {
 		PdfBoxKeyWordPosition kwp = new PdfBoxKeyWordPosition(keyWords, pdfPath);
 		List<float[]> list = kwp.getCoordinate();
 		float[] c = list.get(0);
-		System.out.println("关键字坐标：x:" + c[0] + ", y:" + c[1]);
+		// c 数组大小位5，分别为：页码，x坐标，y坐标，宽，高
+		System.out.println("关键字坐标：x:" + c[1] + ", y:" + c[2]);
 	}
 
 	//关键字字符数组
