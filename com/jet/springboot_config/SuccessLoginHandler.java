@@ -25,5 +25,7 @@ public class SuccessLoginHandler implements AuthenticationSuccessHandler {
         cookie.setMaxAge(-1);
         httpServletResponse.addCookie(cookie);
         httpServletResponse.sendRedirect("/");
+
+        // 登录成功后 TODO something
     }
 }

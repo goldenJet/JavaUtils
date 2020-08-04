@@ -31,6 +31,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     Environment environment;
 
+    @Autowired
+    JetAuthProvider jetAuthProvider;
+
+    @Autowired
+    JetLogoutHandler jetLogoutHandler;
+
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
@@ -56,11 +62,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 //配置登出页面路径并允许所有人访问登陆页面
                 .logout().logoutUrl("/logout").permitAll()
+                // 登出成功后的处理页
+                .addLogoutHandler(jetLogoutHandler)
                 .and()
                 .rememberMe()
                 .rememberMeParameter("remember-me")
-                .tokenValiditySeconds(604800)
-                .rememberMeCookieName("RM_COOKIE");
+                .tokenValiditySeconds(120*60*1000) // 2小时
+                .rememberMeCookieName("RM_COOKIE")
+                // 保证跨域的过滤器首先触发
+                .and().addFilterBefore(new SelfRequestFilter(), ChannelProcessingFilter.class) 
+                .headers().frameOptions().disable()
+                // 禁用 STS
+                .httpStrictTransportSecurity().disable();
 
     }
 
@@ -71,8 +84,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        String encrypt = environment.getProperty("wailian.password.encrypt");
-        String strength = environment.getProperty("wailian.password.secret");
+        /*String encrypt = environment.getProperty("jet.password.encrypt");
+        String strength = environment.getProperty("jet.password.secret");
         PasswordEncoder passwordEncoder = null;
         switch (encrypt.toUpperCase()) {
             case "SCRYPT":
@@ -101,7 +114,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 passwordEncoder = NoOpPasswordEncoder.getInstance();
 
         }
-        auth.userDetailsService(userAuthenticationService).passwordEncoder(passwordEncoder);
+        auth.userDetailsService(userAuthenticationService).passwordEncoder(passwordEncoder);*/
+
+        // 自定义验证规则
+        // public class JetAuthProvider implements AuthenticationProvider
+        auth.authenticationProvider(jetAuthProvider);
     }
 
 

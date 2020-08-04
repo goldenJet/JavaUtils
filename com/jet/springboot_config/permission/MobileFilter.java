@@ -1,6 +1,6 @@
 package com.jet.springboot_vonfig.permission;
 
-import com.jet.util.APIUtil;
+import com.jet.utils.APIUtil;
 import lombok.extern.log4j.Log4j;
 
 import javax.servlet.*;
